@@ -15,12 +15,12 @@ $siteConfig = [
     'social_image_url' => '', // TODO: agregar URL absoluta de la imagen social al publicar.
     'instagram_handle' => '@entelequiacl',
     'instagram_url' => 'https://www.instagram.com/entelequiacl/',
+    'email' => 'holaentelequiacl@gmail.com',
     'developer_name' => 'Oxman IT',
     'developer_url' => 'https://www.oxman.cl/',
 ];
 
-$whatsappNumber = '569XXXXXXXX';
-// TODO: reemplazar por número WhatsApp real del cliente.
+$whatsappNumber = '56942776762';
 $whatsappMessage = 'Hola, vi la página de Entelequia CL y quisiera recibir más información sobre sus servicios.';
 $whatsappUrl = 'https://wa.me/' . $whatsappNumber . '?text=' . rawurlencode($whatsappMessage);
 

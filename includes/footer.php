@@ -23,6 +23,9 @@ declare(strict_types=1);
 
             <div class="footer__social">
                 <p class="footer__label">Conecta</p>
+                <a href="mailto:<?= e($siteConfig['email']) ?>">
+                    Correo <span><?= e($siteConfig['email']) ?></span>
+                </a>
                 <a href="<?= e($siteConfig['instagram_url']) ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Entelequia CL, abre en una pestaña nueva">
                     Instagram <span><?= e($siteConfig['instagram_handle']) ?></span>
                 </a>

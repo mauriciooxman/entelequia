@@ -61,10 +61,9 @@ No se necesitan migraciones, variables de entorno ni instalación de dependencia
 
 Editar `includes/config.php` y completar:
 
-1. `$whatsappNumber` con el número real en formato internacional, sin `+`, espacios ni guiones.
-2. `canonical_url` con el dominio definitivo.
-3. `social_image_url` con la URL absoluta de la imagen para compartir.
-4. La URL y el usuario real de Instagram, si cambian.
+1. `canonical_url` con el dominio definitivo.
+2. `social_image_url` con la URL absoluta de la imagen para compartir.
+3. El número de WhatsApp, correo, URL y usuario de Instagram, si cambian.
 
 Actualizar también:
 
