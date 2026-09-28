@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: descomentar y reemplazar al confirmar el dominio definitivo.
+# Sitemap: https://www.tudominio.cl/sitemap.xml

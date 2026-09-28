@@ -1,0 +1,9 @@
+# Local operating-system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# Source screenshots used only during local design work
+assets/Captura de pantalla*.png
