@@ -77,6 +77,15 @@ require dirname(__DIR__) . '/includes/header.php';
             <p>El objetivo es ofrecer a las personas un espacio para detenerse, reconocer su estado actual y experimentar recursos sencillos que puedan incorporar a su jornada cotidiana.</p>
             <p>Cada jornada funciona de forma independiente, por lo que no es necesario haber participado en un encuentro anterior. Esto permite que cada organización elija la frecuencia que mejor se adapte a su realidad.</p>
         </div>
+        <figure class="corporate-photo corporate-photo--interior reveal">
+            <img src="../<?= e($wellnessPhotos['interior']['src']) ?>"
+                srcset="<?= e(str_replace('assets/', '../assets/', $wellnessPhotos['interior']['srcset'])) ?>"
+                sizes="(min-width: 1024px) 960px, calc(100vw - 2rem)"
+                alt="<?= e($wellnessPhotos['interior']['alt']) ?>"
+                width="<?= (int) $wellnessPhotos['interior']['width'] ?>" height="<?= (int) $wellnessPhotos['interior']['height'] ?>"
+                loading="lazy" decoding="async">
+            <figcaption>Una experiencia grupal de Entelequia CL.</figcaption>
+        </figure>
     </div>
 </section>
 
@@ -137,7 +146,18 @@ require dirname(__DIR__) . '/includes/header.php';
 
 <section class="section corporate-outcomes" aria-labelledby="outcomes-title">
     <div class="container corporate-experience__grid">
-        <div class="corporate-heading reveal"><h2 id="outcomes-title">¿Qué busca generar esta experiencia?</h2></div>
+        <div>
+            <div class="corporate-heading reveal"><h2 id="outcomes-title">¿Qué busca generar esta experiencia?</h2></div>
+            <figure class="corporate-photo corporate-photo--exterior reveal">
+                <img src="../<?= e($wellnessPhotos['exterior']['src']) ?>"
+                    srcset="<?= e(str_replace('assets/', '../assets/', $wellnessPhotos['exterior']['srcset'])) ?>"
+                    sizes="(min-width: 1440px) 640px, (min-width: 1024px) 50vw, calc(100vw - 2rem)"
+                    alt="<?= e($wellnessPhotos['exterior']['alt']) ?>"
+                    width="<?= (int) $wellnessPhotos['exterior']['width'] ?>" height="<?= (int) $wellnessPhotos['exterior']['height'] ?>"
+                    loading="lazy" decoding="async">
+                <figcaption>Un espacio compartido de pausa y conexión al aire libre.</figcaption>
+            </figure>
+        </div>
         <ul class="corporate-outcomes__list">
             <?php foreach ($objetivos as $objetivo): ?>
                 <li class="reveal"><?= e($objetivo) ?></li>

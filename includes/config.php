@@ -26,6 +26,33 @@ $whatsappUrl = 'https://wa.me/' . $whatsappNumber . '?text=' . rawurlencode($wha
 $corporateWhatsappMessage = 'Hola, vi la propuesta de Wellness & Wellbeing Corporativo de Entelequia CL y quisiera recibir más información para mi empresa/equipo.';
 $corporateWhatsappUrl = 'https://wa.me/' . $whatsappNumber . '?text=' . rawurlencode($corporateWhatsappMessage);
 
+// Retrato oficial compartido por la home y la presentación completa.
+$nicolePhoto = [
+    'src' => 'assets/img/nicole/nicole-viera.webp',
+    'width' => 574,
+    'height' => 764,
+    'alt' => 'Nicole Viera, especialista de Entelequia CL',
+];
+$nicoleLinkedinUrl = 'https://www.linkedin.com/in/nicole-viera-droguett-31407130b';
+
+// Fotografías reales de Wellness: rutas, dimensiones y textos centralizados para futuros reemplazos.
+$wellnessPhotos = [
+    'interior' => [
+        'src' => 'assets/img/wellness/wellness-corporativo-taller-interior.webp',
+        'srcset' => 'assets/img/wellness/wellness-corporativo-taller-interior-640.webp 640w, assets/img/wellness/wellness-corporativo-taller-interior-960.webp 960w, assets/img/wellness/wellness-corporativo-taller-interior.webp 1451w',
+        'width' => 1451,
+        'height' => 1084,
+        'alt' => 'Jornada grupal de bienestar y autorregulación de Entelequia CL',
+    ],
+    'exterior' => [
+        'src' => 'assets/img/wellness/wellness-corporativo-experiencia-exterior.webp',
+        'srcset' => 'assets/img/wellness/wellness-corporativo-experiencia-exterior-640.webp 640w, assets/img/wellness/wellness-corporativo-experiencia-exterior.webp 1114w',
+        'width' => 1114,
+        'height' => 1412,
+        'alt' => 'Experiencia grupal de bienestar de Entelequia CL en un entorno al aire libre',
+    ],
+];
+
 /**
  * Los campos de "detalles" están listos para crecer sin duplicar el HTML.
  * Al completar un valor, se mostrará automáticamente en la tarjeta.
@@ -80,8 +107,11 @@ $servicios = [
         'linea' => 'Bienestar para organizaciones',
         'descripcion' => 'Jornadas de bienestar laboral diseñadas para generar espacios de pausa, conciencia y autorregulación dentro de la jornada de trabajo.',
         'descripcion_secundaria' => 'Experiencias de 90 minutos con herramientas prácticas de EFT Tapping, mindfulness, respiración consciente y meditación.',
-        'imagen' => 'assets/img/about/sobre-entelequia.jpg',
-        'alt' => 'Manos escribiendo en un cuaderno junto a una ventana',
+        'imagen' => $wellnessPhotos['interior']['src'],
+        'imagen_srcset' => $wellnessPhotos['interior']['srcset'],
+        'imagen_width' => $wellnessPhotos['interior']['width'],
+        'imagen_height' => $wellnessPhotos['interior']['height'],
+        'alt' => $wellnessPhotos['interior']['alt'],
         'badge' => 'Para empresas y equipos',
         'cta' => 'Conocer Wellness Corporativo',
         'href' => 'servicios/wellness-corporativo.php',

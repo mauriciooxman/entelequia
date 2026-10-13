@@ -731,7 +731,10 @@ h2 em {
 .service-card__topline { flex-wrap: wrap; }
 .service-card__badge { line-height: 1.5; }
 .service-card--corporate { background: var(--color-background-soft); }
-.service-card--corporate .service-card__image { aspect-ratio: 1.8; }
+.service-card--corporate .service-card__image { aspect-ratio: 1451 / 1084; }
+.service-card--corporate .service-card__image::after { display: none; }
+.service-card--corporate .service-card__image img { object-position: center; }
+.service-card--corporate:hover .service-card__image img { transform: none; }
 .service-card--corporate .service-card__badge { color: var(--color-primary-dark); }
 .corporate-hero__grid { position: relative; }
 .service-detail-hero.corporate-hero h1 { max-width: none; font-size: clamp(3rem, 6vw, 5.8rem); line-height: 1.04; }
@@ -752,6 +755,15 @@ h2 em {
 .corporate-experience { background: var(--color-white); }
 .corporate-experience__grid .corporate-heading { margin-bottom: 0; }
 .corporate-copy { align-self: center; }
+/* Las fotos reales conservan el grupo completo; el recorte exterior solo reduce cielo y césped. */
+.corporate-photo { min-width: 0; margin: 0; }
+.corporate-photo img { display: block; width: 100%; height: auto; object-fit: cover; border-radius: var(--radius-large); }
+.corporate-photo figcaption { margin-top: 0.85rem; color: var(--color-primary-dark); font-size: 0.85rem; }
+.corporate-photo--interior { grid-column: 1 / -1; width: min(100%, 60rem); justify-self: center; }
+.corporate-photo--interior img { aspect-ratio: 1451 / 1084; object-position: center; }
+.corporate-photo--exterior { margin-top: 2rem; }
+.corporate-photo--exterior img { aspect-ratio: 1114 / 1412; object-position: center; }
+.corporate-outcomes__list { align-self: center; }
 .corporate-duration { display: flex; flex-direction: column; align-items: flex-start; margin-top: 2.5rem; }
 .corporate-duration strong { color: var(--color-primary-dark); font-family: var(--font-display); font-size: 5rem; font-weight: 500; line-height: 1; }
 .corporate-duration strong span { font-size: 2rem; }
@@ -787,12 +799,13 @@ h2 em {
 .service-page--corporate .footer__social { min-width: 0; overflow-wrap: anywhere; }
 @media (min-width: 48rem) {
     .service-card--corporate { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); }
-    .service-card--corporate .service-card__image { height: 100%; aspect-ratio: auto; }
+    .service-card--corporate .service-card__image { height: auto; align-self: center; }
     .corporate-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (min-width: 64rem) {
     .corporate-hero__grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.85fr); align-items: center; }
     .corporate-experience__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .corporate-photo--exterior img { aspect-ratio: 1; object-position: center 90%; }
     .corporate-grid--tools { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .corporate-grid--tools .corporate-card { padding: 1.5rem; }
     .corporate-timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
@@ -872,6 +885,19 @@ h2 em {
 .about__content > p:not(.eyebrow, .about__lead) {
     margin-bottom: 2rem;
     color: var(--color-text-soft);
+}
+
+/* Retrato oficial: encuadre completo en móvil y recorte vertical suave en desktop. */
+.nicole-intro .about__grid > * { min-width: 0; }
+.nicole-portrait img { aspect-ratio: 574 / 764; object-position: center 25%; border-radius: var(--radius-large); box-shadow: none; }
+.nicole-portrait .about__frame { border-radius: var(--radius-large); }
+.nicole-intro .about__content > .nicole-subtitle { color: var(--color-primary-dark); font-weight: 600; margin-top: -1rem; }
+.nicole-summary { padding-block: 1.5rem; margin-block: 1.5rem; border-top: 1px solid var(--color-beige); }
+.nicole-summary h3 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 1rem; }
+.nicole-summary p { color: var(--color-text-soft); }
+@media (min-width: 48rem) {
+    .nicole-intro .about__grid { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr); gap: clamp(2.5rem, 5vw, 5rem); }
+    .nicole-portrait img { aspect-ratio: 4 / 5; }
 }
 
 /* Quote */

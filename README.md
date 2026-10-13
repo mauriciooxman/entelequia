@@ -71,7 +71,6 @@ Actualizar también:
 
 - `robots.txt`: habilitar la línea `Sitemap` con el dominio definitivo.
 - `sitemap.xml`: completar las URLs de inicio y los tres servicios con el dominio confirmado. Por ahora no contiene entradas activas para evitar publicar URLs de ejemplo.
-- Fotografía oficial de Nicole Viera: la imagen ambiental actual es provisional y no representa un retrato de la especialista.
 - Confirmar el dominio de producción (`www.entelequiacl.cl` fue suministrado por la clienta) antes de activar canonical, Open Graph URL y sitemap. La configuración conserva su estado previo sin dominio de producción.
 
 ## Editar o agregar servicios
@@ -83,6 +82,7 @@ Los servicios se gestionan en el array `$servicios` de `includes/config.php`. Ca
 - `slug`
 - `descripcion`
 - `imagen`
+- `imagen_srcset`, `imagen_width`, `imagen_height`: variantes responsive y dimensiones opcionales.
 - `alt`
 - `badge`
 - `linea`: bienestar personal o bienestar para organizaciones.
@@ -95,7 +95,24 @@ Las tarjetas de la home se generan automáticamente desde `index.php`. El conten
 
 ## Imágenes provisionales
 
-Las cuatro fotografías incluidas fueron generadas específicamente para esta maqueta y optimizadas como JPG. Son placeholders editoriales originales; conviene reemplazar el hero y la sección “Sobre Entelequia” por fotografías oficiales del cliente antes del lanzamiento.
+Las cuatro fotografías JPG originales fueron generadas específicamente para esta maqueta. Se conservan los archivos; el hero y las imágenes de EFT / Tapping e Híbrido Emocional siguen siendo provisionales. La presentación de Nicole en la home y en Wellness Corporativo ya utiliza su retrato real.
+
+## Fotografías reales de Wellness Corporativo
+
+Las dos fotografías suministradas por la clienta están en `assets/img/wellness/`. Se conservan los PNG adjuntos y se sirven versiones WebP de calidad alta, sin filtros ni cambios en las personas. Las rutas, variantes, dimensiones y alt están centralizados en `$wellnessPhotos` de `includes/config.php`.
+
+- `wellness-corporativo-taller-interior`: original de 1451 × 1084 px y WebP de 640, 960 y 1451 px. Se utiliza en la tarjeta corporativa de la home (reemplaza la imagen provisional del cuaderno) y en “Una pausa consciente dentro de la jornada laboral”. Mantiene el encuadre completo en todos los tamaños.
+- `wellness-corporativo-experiencia-exterior`: original de 1114 × 1412 px y WebP de 640 y 1114 px. Acompaña “¿Qué busca generar esta experiencia?”. Hasta 1023 px mantiene el formato vertical completo; desde 1024 px usa un encuadre cuadrado con `object-position: center 90%`, reduciendo cielo y césped y conservando el grupo.
+
+Todas estas apariciones usan `srcset`, `sizes`, dimensiones explícitas, `loading="lazy"` y `decoding="async"`. Los originales PNG no se descargan en las páginas. El hero corporativo conserva su composición gráfica; las imágenes de EFT / Tapping, Híbrido Emocional y los demás placeholders se mantienen.
+
+## Retrato oficial de Nicole Viera
+
+`assets/img/nicole/nicole-viera.webp` es la fotografía real suministrada por la clienta, optimizada a calidad alta (574 × 764 px) sin filtros, retoques ni alteraciones faciales. Se conserva el PNG adjunto. Su ruta, dimensiones y alt se centralizan en `$nicolePhoto` de `includes/config.php`.
+
+Reemplaza la imagen provisional del cuaderno en `includes/nicole.php` (presentación completa, incluida una vez en Wellness Corporativo) y en “Sobre Entelequia” de la home. La home conserva su contenido institucional y añade únicamente una introducción breve con “Conocer más”, que enlaza a `servicios/wellness-corporativo.php#nicole`. Las fotos grupales de Wellness se mantienen.
+
+El retrato conserva la proporción original en móvil; desde 768 px se muestra en 4:5 con `object-position: center 25%`, manteniendo el rostro y reduciendo ligeramente los márgenes verticales. Usa bordes redondeados, `object-fit: cover`, dimensiones explícitas, `loading="lazy"` y `decoding="async"`. LinkedIn utiliza un texto breve, nueva pestaña y `rel="noopener noreferrer"`. La biografía conserva exclusivamente los tres párrafos entregados por la clienta.
 
 ## Consideraciones
 

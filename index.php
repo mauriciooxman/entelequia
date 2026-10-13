@@ -61,7 +61,14 @@ require __DIR__ . '/includes/header.php';
             <?php foreach ($servicios as $index => $servicio): ?>
                 <article class="service-card reveal<?= $servicio['slug'] === 'wellness-corporativo' ? ' service-card--corporate' : '' ?>" id="<?= e($servicio['slug']) ?>">
                     <div class="service-card__image">
-                        <img src="<?= e($servicio['imagen']) ?>" alt="<?= e($servicio['alt']) ?>" width="1200" height="800" loading="lazy">
+                        <img src="<?= e($servicio['imagen']) ?>"
+                            <?php if (!empty($servicio['imagen_srcset'])): ?>
+                                srcset="<?= e($servicio['imagen_srcset']) ?>"
+                                sizes="(min-width: 1440px) 600px, (min-width: 768px) 45vw, calc(100vw - 2rem)"
+                            <?php endif; ?>
+                            alt="<?= e($servicio['alt']) ?>"
+                            width="<?= (int) ($servicio['imagen_width'] ?? 1200) ?>" height="<?= (int) ($servicio['imagen_height'] ?? 800) ?>"
+                            loading="lazy" decoding="async">
                         <span class="service-card__number" aria-hidden="true"><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) ?></span>
                     </div>
                     <div class="service-card__body">
@@ -87,11 +94,11 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="about section" id="sobre-entelequia" aria-labelledby="about-title">
+<section class="about section nicole-intro" id="sobre-entelequia" aria-labelledby="about-title">
     <div class="container about__grid">
-        <div class="about__visual reveal">
+        <div class="about__visual nicole-portrait reveal">
             <div class="about__frame" aria-hidden="true"></div>
-            <img src="assets/img/about/sobre-entelequia.jpg" alt="Manos escribiendo en un cuaderno junto a una ventana" width="1122" height="1402" loading="lazy">
+            <img src="<?= e($nicolePhoto['src']) ?>" alt="<?= e($nicolePhoto['alt']) ?>" width="<?= (int) $nicolePhoto['width'] ?>" height="<?= (int) $nicolePhoto['height'] ?>" loading="lazy" decoding="async">
             <p class="about__caption">Presencia · Escucha · Propósito</p>
         </div>
 
@@ -101,6 +108,11 @@ require __DIR__ . '/includes/header.php';
             <p class="about__lead">Entelequia CL es un espacio de wellness y autoconocimiento orientado a generar experiencias de conexión, autorregulación y bienestar.</p>
             <p>Su propuesta integra servicios individuales y experiencias para empresas y equipos.</p>
             <p>A través de diferentes herramientas y metodologías, cada proceso busca generar un momento de conexión, observación y escucha personal.</p>
+            <div class="nicole-summary">
+                <h3>Conoce a Nicole</h3>
+                <p>Nicole Viera combina su experiencia en acompañamiento humano y entornos laborales para crear experiencias de bienestar, autorregulación y autoconocimiento.</p>
+                <a class="text-link" href="servicios/wellness-corporativo.php#nicole">Conocer más <span aria-hidden="true">→</span></a>
+            </div>
             <a class="text-link" href="#contacto">Conversemos <span aria-hidden="true">→</span></a>
         </div>
     </div>
