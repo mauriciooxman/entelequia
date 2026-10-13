@@ -54,19 +54,19 @@ require __DIR__ . '/includes/header.php';
                 <p class="eyebrow"><span aria-hidden="true"></span><span class="eyebrow__text">Formas de acompañarte</span></p>
                 <h2 id="services-title">Nuestros servicios</h2>
             </div>
-            <p>Distintas herramientas para acompañarte en la exploración de tus emociones y en tu proceso de autoconocimiento.</p>
+            <p>Bienestar personal y bienestar para organizaciones: distintas herramientas para acompañar tus emociones, tu autoconocimiento y los espacios de pausa de tu equipo.</p>
         </div>
 
         <div class="services__grid">
             <?php foreach ($servicios as $index => $servicio): ?>
-                <article class="service-card reveal" id="<?= e($servicio['slug']) ?>">
+                <article class="service-card reveal<?= $servicio['slug'] === 'wellness-corporativo' ? ' service-card--corporate' : '' ?>" id="<?= e($servicio['slug']) ?>">
                     <div class="service-card__image">
                         <img src="<?= e($servicio['imagen']) ?>" alt="<?= e($servicio['alt']) ?>" width="1200" height="800" loading="lazy">
                         <span class="service-card__number" aria-hidden="true"><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) ?></span>
                     </div>
                     <div class="service-card__body">
                         <div class="service-card__topline">
-                            <p class="service-card__label">Servicio</p>
+                            <p class="service-card__label"><?= e($servicio['linea']) ?></p>
                             <?php if ($servicio['badge'] !== ''): ?>
                                 <span class="service-card__badge"><?= e($servicio['badge']) ?></span>
                             <?php endif; ?>
@@ -74,6 +74,9 @@ require __DIR__ . '/includes/header.php';
                         <h3><?= e($servicio['titulo']) ?></h3>
                         <p class="service-card__subtitle"><?= e($servicio['subtitulo']) ?></p>
                         <p><?= e($servicio['descripcion']) ?></p>
+                        <?php if (!empty($servicio['descripcion_secundaria'])): ?>
+                            <p><?= e($servicio['descripcion_secundaria']) ?></p>
+                        <?php endif; ?>
                         <a class="text-link" href="<?= e($servicio['href']) ?>" aria-label="<?= e($servicio['cta']) ?>">
                             <?= e($servicio['cta']) ?> <span aria-hidden="true">→</span>
                         </a>
@@ -95,7 +98,8 @@ require __DIR__ . '/includes/header.php';
         <div class="about__content reveal reveal--delay">
             <p class="eyebrow"><span aria-hidden="true"></span><span class="eyebrow__text">Sobre Entelequia</span></p>
             <h2 id="about-title">Un espacio para <em>escucharte</em></h2>
-            <p class="about__lead">Entelequia nace como un espacio dedicado al wellness, el autoconocimiento y la exploración emocional.</p>
+            <p class="about__lead">Entelequia CL es un espacio de wellness y autoconocimiento orientado a generar experiencias de conexión, autorregulación y bienestar.</p>
+            <p>Su propuesta integra servicios individuales y experiencias para empresas y equipos.</p>
             <p>A través de diferentes herramientas y metodologías, cada proceso busca generar un momento de conexión, observación y escucha personal.</p>
             <a class="text-link" href="#contacto">Conversemos <span aria-hidden="true">→</span></a>
         </div>

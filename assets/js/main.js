@@ -36,7 +36,7 @@
             document.body.classList.toggle('nav-open', willOpen);
         });
 
-        navLinks.forEach((link) => link.addEventListener('click', () => closeMenu()));
+        nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => closeMenu()));
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && nav.classList.contains('is-open')) {

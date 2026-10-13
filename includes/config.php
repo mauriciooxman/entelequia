@@ -23,6 +23,8 @@ $siteConfig = [
 $whatsappNumber = '56942776762';
 $whatsappMessage = 'Hola, vi la página de Entelequia CL y quisiera recibir más información sobre sus servicios.';
 $whatsappUrl = 'https://wa.me/' . $whatsappNumber . '?text=' . rawurlencode($whatsappMessage);
+$corporateWhatsappMessage = 'Hola, vi la propuesta de Wellness & Wellbeing Corporativo de Entelequia CL y quisiera recibir más información para mi empresa/equipo.';
+$corporateWhatsappUrl = 'https://wa.me/' . $whatsappNumber . '?text=' . rawurlencode($corporateWhatsappMessage);
 
 /**
  * Los campos de "detalles" están listos para crecer sin duplicar el HTML.
@@ -33,6 +35,7 @@ $servicios = [
         'titulo' => 'EFT / Tapping',
         'subtitulo' => 'Emotional Freedom Techniques',
         'slug' => 'eft-tapping',
+        'linea' => 'Bienestar personal',
         'descripcion' => 'Una herramienta que combina atención consciente, tapping y verbalización para acompañar diferentes experiencias emocionales.',
         'imagen' => 'assets/img/servicios/eft-tapping.jpg',
         'alt' => 'Manos en un gesto sereno de conexión personal',
@@ -53,6 +56,7 @@ $servicios = [
         'titulo' => 'Híbrido Emocional',
         'subtitulo' => 'Un recorrido emocional',
         'slug' => 'hibrido-emocional',
+        'linea' => 'Bienestar personal',
         'descripcion' => 'Un recorrido de cuatro sesiones para explorar emociones, experiencias, miedos y sensaciones corporales.',
         'imagen' => 'assets/img/servicios/hibrido-emocional.jpg',
         'alt' => 'Cuatro piezas de cerámica que representan distintas etapas de un proceso',
@@ -68,6 +72,20 @@ $servicios = [
             'precio' => '',
             'preguntas_frecuentes' => [],
         ],
+    ],
+    [
+        'titulo' => 'Wellness & Wellbeing Corporativo',
+        'subtitulo' => 'Jornadas de autorregulación y bienestar',
+        'slug' => 'wellness-corporativo',
+        'linea' => 'Bienestar para organizaciones',
+        'descripcion' => 'Jornadas de bienestar laboral diseñadas para generar espacios de pausa, conciencia y autorregulación dentro de la jornada de trabajo.',
+        'descripcion_secundaria' => 'Experiencias de 90 minutos con herramientas prácticas de EFT Tapping, mindfulness, respiración consciente y meditación.',
+        'imagen' => 'assets/img/about/sobre-entelequia.jpg',
+        'alt' => 'Manos escribiendo en un cuaderno junto a una ventana',
+        'badge' => 'Para empresas y equipos',
+        'cta' => 'Conocer Wellness Corporativo',
+        'href' => 'servicios/wellness-corporativo.php',
+        'detalles' => [],
     ],
 ];
 
