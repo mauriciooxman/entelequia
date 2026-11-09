@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 require __DIR__ . '/includes/config.php';
+
+$pageCanonicalPath = '';
+
 require __DIR__ . '/includes/header.php';
 ?>
 

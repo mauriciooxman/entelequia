@@ -4,6 +4,7 @@ Thumbs.db
 .idea/
 .vscode/
 *.log
+/dist/
 
 # Source screenshots used only during local design work
 assets/Captura de pantalla*.png

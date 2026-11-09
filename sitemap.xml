@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- TODO: agregar las URLs de inicio y los tres servicios al confirmar el dominio definitivo. -->
-<!-- Sitemap sin entradas activas hasta confirmar el dominio de producción. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://entelequiachile.cl/</loc>
+    </url>
+    <url>
+        <loc>https://entelequiachile.cl/servicios/eft-tapping.php</loc>
+    </url>
+    <url>
+        <loc>https://entelequiachile.cl/servicios/hibrido-emocional.php</loc>
+    </url>
+    <url>
+        <loc>https://entelequiachile.cl/servicios/wellness-corporativo.php</loc>
+    </url>
 </urlset>

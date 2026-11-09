@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Permitir que cPanel/AutoSSL valide el dominio antes de forzar HTTPS.
+RewriteRule ^\.well-known/acme-challenge/ - [L]
+
+# Canonicalizar HTTP y www en https://entelequiachile.cl sin redirecciones en cadena.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.entelequiachile\.cl$ [NC]
+RewriteRule ^ https://entelequiachile.cl%{REQUEST_URI} [R=301,L,NE]
