@@ -1737,6 +1737,7 @@ h2 em {
     }
 
     .site-header {
+        overflow: visible;
         background: rgba(249, 248, 246, 0.92);
         -webkit-backdrop-filter: blur(12px);
         backdrop-filter: blur(12px);
@@ -1748,12 +1749,14 @@ h2 em {
 
     /* ─── Menú móvil: panel dropdown debajo del header ─── */
     .main-nav {
-        position: fixed;
+        position: absolute;
         z-index: 190;              /* debajo del header (200), encima de todo lo demás */
-        top: var(--header-height); /* arranca exactamente donde termina el header */
+        top: 100%;                /* anclado al borde inferior del header */
         right: 0;
         left: 0;
-        bottom: 0;                 /* cubre el resto del viewport completamente */
+        height: auto;
+        max-height: calc(100vh - var(--header-height));
+        max-height: calc(100dvh - var(--header-height));
         display: flex;
         flex-direction: column;
         justify-content: flex-start;

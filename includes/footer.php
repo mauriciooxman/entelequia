@@ -1,6 +1,9 @@
 <?php
 
 declare(strict_types=1);
+
+// Fall back safely if the asset metadata is unavailable.
+$jsVersion = (string) (@filemtime(dirname(__DIR__) . '/assets/js/main.js') ?: 1);
 ?>
     </main>
 
@@ -46,6 +49,6 @@ declare(strict_types=1);
         </svg>
     </a>
 
-    <script src="<?= e($assetBase) ?>assets/js/main.js" defer></script>
+    <script src="<?= e($assetBase) ?>assets/js/main.js?v=<?= e($jsVersion) ?>" defer></script>
 </body>
 </html>

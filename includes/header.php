@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 $assetBase = $pageAssetBase ?? '';
+// Fall back safely if the asset metadata is unavailable.
+$cssVersion = (string) (@filemtime(dirname(__DIR__) . '/assets/css/styles.css') ?: 1);
 $homePath = $pageHomePath ?? '';
 $metaTitle = $pageTitle ?? $siteConfig['title'];
 $metaDescription = $pageDescription ?? $siteConfig['description'];
@@ -51,7 +53,7 @@ $bodyClass = $pageBodyClass ?? '';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= e($assetBase) ?>assets/css/styles.css">
+    <link rel="stylesheet" href="<?= e($assetBase) ?>assets/css/styles.css?v=<?= e($cssVersion) ?>">
 </head>
 <body<?= $bodyClass !== '' ? ' class="' . e($bodyClass) . '"' : '' ?>>
     <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
