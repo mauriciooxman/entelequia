@@ -1,0 +1,70 @@
+name: Deploy Entelequia CL
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Deploy production via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          timeout: 120000
+          local-dir: ./
+          # The FTP account root already points to public_html.
+          server-dir: ./
+          security: strict
+          log-level: minimal
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.gitignore
+            **/.github/**
+            **/dist/**
+            **/README.md
+            **/node_modules/**
+            **/.env
+            **/.env.*
+            **/*.sql
+            **/*.log
+            **/tmp/**
+            **/temp/**
+            **/*.tmp
+            **/*.temp
+            **/*.bak
+            **/*.swp
+            **/*~
+            **/qa/**
+            **/QA/**
+            **/tests/**
+            **/*-qa.*
+            **/.idea/**
+            **/.vscode/**
+            **/.DS_Store
+            **/Thumbs.db
+            **/.codex/**
+            **/.agents/**
+            **/AGENTS.md
+            **/assets/Captura de pantalla*.png
+            **/cgi-bin/**
